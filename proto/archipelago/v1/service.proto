@@ -1,0 +1,11 @@
+syntax = "proto3";
+package archipelago.v1;
+option go_package = "gen/go/archipelago/v1;archipelagov1";
+
+import "archipelago/v1/entity.proto";
+
+// UserService provides RPC methods for user-related operations.
+service UserService {
+    // GetUserByUserId retrieves a user by their user ID.
+    rpc GetUserByUserId(GetUserByIdRequest) returns (GetUserByIdResponse);
+}

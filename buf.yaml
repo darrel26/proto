@@ -1,0 +1,44 @@
+version: v2
+
+# The v2 buf.yaml file specifies a local workspace, which consists of at least one module.
+# The buf.yaml file should be placed at the root directory of the workspace.
+
+modules:
+  # Module entry for your proto source tree.
+  - path: proto
+    # Module-level linting rules (overrides global defaults completely).
+    lint:
+      use:
+        - STANDARD
+      except:
+        - IMPORT_USED
+      disallow_comment_ignores: false
+      enum_zero_value_suffix: _UNSPECIFIED
+      rpc_allow_same_request_response: false
+      rpc_allow_google_protobuf_empty_requests: false
+      rpc_allow_google_protobuf_empty_responses: false
+      service_suffix: Service
+
+    # Module-level breaking rules.
+    breaking:
+      use:
+        - FILE
+      except:
+        - EXTENSION_MESSAGE_NO_DELETE
+      ignore_unstable_packages: true
+
+# Dependencies shared by all modules in the workspace.
+deps:
+  - buf.build/googleapis/googleapis
+
+# Default lint configuration,
+# applied only to modules without their own lint config.
+lint:
+  use:
+    - STANDARD
+    - TIMESTAMP_SUFFIX
+
+# Default breaking configuration.
+breaking:
+  use:
+    - FILE
