@@ -1,0 +1,7 @@
+syntax = "proto3";
+package service.v1;
+option go_package = "gen/go/service/v1;servicev1";
+
+import "service/v1/entity.proto";
+
+// Define your service RPCs here

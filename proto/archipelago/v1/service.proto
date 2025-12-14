@@ -7,5 +7,5 @@ import "archipelago/v1/entity.proto";
 // UserService provides RPC methods for user-related operations.
 service UserService {
     // GetUserByUserId retrieves a user by their user ID.
-    rpc GetUserByUserId(GetUserByIdRequest) returns (GetUserByIdResponse);
+    rpc GetUserByUserId(GetUserByUserIdRequest) returns (GetUserByUserIdResponse);
 }
